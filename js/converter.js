@@ -24,18 +24,26 @@ function handleConversion() {
 }
 
 
-function convert(string, from) {
+function convert(str, from) {
 
     var romaji = '';
     var hiragana = '';
     var katakana = '';
 
-    for (var i = 0; i < string.length; i++) {
-        var char = string[i];
-        var conversion = getConversion(char, from);
-        romaji += conversion['romaji'] || char;
-        hiragana += conversion['hiragana'] || char;
-        katakana += conversion['katakana'] || char;
+    while (str !== '') {
+        var token = getToken(str, from);
+        if (token[from]) {
+            romaji += token.romaji;
+            hiragana += token.hiragana;
+            katakana += token.katakana;
+            str = str.substr(token[from].length);
+        } else {
+            var replacement = (str[0] !== ' ' && str[0] !== '\'') ? str[0] : '';
+            romaji += replacement;
+            hiragana += replacement;
+            katakana += replacement;
+            str = str.substr(1);
+        }
     }
 
     return {
@@ -47,12 +55,13 @@ function convert(string, from) {
 }
 
 
-function getConversion(char, from) {
+function getToken(str, from) {
 
     for (var i = 0; i < window.conversionTable.length; i++) {
-        if (window.conversionTable[i][from] === char) {
+        if (str.startsWith(window.conversionTable[i][from])) {
             return window.conversionTable[i];
         }
     }
     return {};
+
 }
