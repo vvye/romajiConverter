@@ -1,0 +1,27 @@
+.main {
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+noscript div {
+    margin: 1em 0.5em;
+    border-radius: 2px;
+    background-color: #DEF;
+    padding: 1em;
+    color: #369;
+}
+
+.pure-form fieldset {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+@media screen and (max-width: 48em) {
+
+    .main {
+        width: auto;
+        margin: 0 1em;
+    }
+
+}

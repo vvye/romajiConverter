@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Romaji to Hiragana/Katakana Converter</title>
+
+		<link rel="stylesheet" href="//yui.yahooapis.com/pure/0.6.0/pure-min.css" />
+		<!--[if lte IE 8]>
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+		<![endif]-->
+		<!--[if gt IE 8]><!-->
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+		<!--<![endif]-->
+
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+
+		<div class="main">
+
+			<h1>romaji と hiragana/katakana and back</h1>
+
+			<noscript><div>This page needs JavaScript to work.</div></noscript>
+
+			<form class="pure-form">
+
+				<div class="pure-g">
+					<div class="pure-u-1">
+						<fieldset>
+							<legend>romaji</legend>
+							<textarea class="pure-input-1" id="romaji" autofocus></textarea>
+						</fieldset>
+					</div>
+					<div class="pure-u-1 pure-u-md-1-2">
+						<fieldset>
+							<legend>hiragana</legend>
+							<textarea class="pure-input-1" id="hiragana"></textarea>
+						</fieldset>
+					</div>
+					<div class="pure-u-1 pure-u-md-1-2">
+						<fieldset>
+							<legend>katakana</legend>
+							<textarea class="pure-input-1" id="katakana"></textarea>
+						</fieldset>
+					</div>
+				</div>
+
+			</form>
+
+		</div>
+
+		<script type="text/javascript" src="js/conversionTable.js"></script>
+		<script type="text/javascript" src="js/converter.js"></script>
+
+	</body>
+
+</html>
