@@ -3,53 +3,42 @@ var hiraganaInput = document.getElementById('hiragana');
 var katakanaInput = document.getElementById('katakana');
 
 
-romajiInput.onkeyup = hiraganaInput.onkeyup = katakanaInput.onkeyup = handleConversion;
-
-
-function handleConversion() {
+romajiInput.onkeyup = hiraganaInput.onkeyup = katakanaInput.onkeyup = function () {
 
     var from = this.id;
     var conversionResult = convert(this.value, from);
 
     if (this !== romajiInput) {
-        romajiInput.value = conversionResult.romaji;
+        romajiInput.value = conversionResult.romajiStr;
     }
     if (this !== hiraganaInput) {
-        hiraganaInput.value = conversionResult.hiragana;
+        hiraganaInput.value = conversionResult.hiraganaStr;
     }
     if (this !== katakanaInput) {
-        katakanaInput.value = conversionResult.katakana;
+        katakanaInput.value = conversionResult.katakanaStr;
     }
 
-}
+};
 
 
 function convert(str, from) {
 
-    var romaji = '';
-    var hiragana = '';
-    var katakana = '';
+    var romajiStr = '';
+    var hiraganaStr = '';
+    var katakanaStr = '';
 
     while (str !== '') {
         var token = getToken(str, from);
-        if (token[from]) {
-            romaji += token.romaji;
-            hiragana += token.hiragana;
-            katakana += token.katakana;
-            str = str.substr(token[from].length);
-        } else {
-            var replacement = (str[0] !== ' ' && str[0] !== '\'') ? str[0] : '';
-            romaji += replacement;
-            hiragana += replacement;
-            katakana += replacement;
-            str = str.substr(1);
-        }
+        romajiStr += token.romaji;
+        hiraganaStr += token.hiragana;
+        katakanaStr += token.katakana;
+        str = str.substr(token[from].length || 1);
     }
 
     return {
-        romaji: romaji,
-        hiragana: hiragana,
-        katakana: katakana
+        romajiStr: romajiStr,
+        hiraganaStr: hiraganaStr,
+        katakanaStr: katakanaStr
     };
 
 }
@@ -62,6 +51,12 @@ function getToken(str, from) {
             return window.conversionTable[i];
         }
     }
-    return {};
+
+    var replacement = (str[0] !== ' ' && str[0] !== '\'') ? str[0] : '';
+    return {
+        romaji: replacement,
+        hiragana: replacement,
+        katakana: replacement
+    };
 
 }
