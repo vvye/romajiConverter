@@ -6,7 +6,7 @@ var katakanaInput = document.getElementById('katakana');
 romajiInput.onkeyup = hiraganaInput.onkeyup = katakanaInput.onkeyup = function () {
 
     var from = this.id;
-    var conversionResult = convert(this.value, from);
+    var conversionResult = convert(this.value.toLowerCase(), from);
 
     if (this !== romajiInput) {
         romajiInput.value = conversionResult.romajiStr;
@@ -32,7 +32,7 @@ function convert(str, from) {
         romajiStr += token.romaji;
         hiraganaStr += token.hiragana;
         katakanaStr += token.katakana;
-        str = str.substr(token[from].length || 1);
+        str = str.substr(token.strLength);
     }
 
     return {
@@ -46,17 +46,35 @@ function convert(str, from) {
 
 function getToken(str, from) {
 
+    if (shouldIgnoreChar(str[0])) {
+        return {
+            romaji: '',
+            hiragana: '',
+            katakana: '',
+            strLength: 1
+        };
+    }
+
     for (var i = 0; i < window.conversionTable.length; i++) {
-        if (str.startsWith(window.conversionTable[i][from])) {
-            return window.conversionTable[i];
+        var token = window.conversionTable[i];
+        if (str.startsWith(token[from])) {
+            token.strLength = token[from].length;
+            return token;
         }
     }
 
-    var replacement = (str[0] !== ' ' && str[0] !== '\'') ? str[0] : '';
     return {
-        romaji: replacement,
-        hiragana: replacement,
-        katakana: replacement
+        romaji: str[0],
+        hiragana: str[0],
+        katakana: str[0],
+        strLength: 1
     };
+
+}
+
+
+function shouldIgnoreChar(char) {
+
+    return char === ' ' || char === '\'';
 
 }
