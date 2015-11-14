@@ -42,10 +42,10 @@ Converter.prototype.getResult = function() {
 Converter.prototype._preprocess = function () {
 
     this.text = this.text
-        .replace('ā', 'aa')
-        .replace('ū', 'uu')
-        .replace('ē', 'ee')
-        .replace('ō', 'ou');
+        .replace('/ā/gi', 'aa')
+        .replace('/ū/gi', 'uu')
+        .replace('/ē/gi', 'ee')
+        .replace('/ō/gi', 'ou');
 
 };
 
@@ -57,6 +57,7 @@ Converter.prototype._getToken = function () {
     if (this._shouldIgnoreChar(this.text[0])) {
         newToken.romaji = newToken.hiragana = newToken.katakana = '';
         newToken.strLength = 1;
+        return newToken;
     }
 
     for (var i = 0; i < this.conversionTable.length; i++) {
@@ -87,10 +88,10 @@ Converter.prototype._postprocess = function () {
     this.result.romajiText = this.result.romajiText
         .replace(/([aiueo])ー/gi, '$1$1')
 
-        .replace('aa', 'ā')
-        .replace('uu', 'ū')
-        .replace('ee', 'ē')
-        .replace('ou', 'ō')
-        .replace('oo', 'ō');
+        .replace('/aa/i', 'ā')
+        .replace('/uu/i', 'ū')
+        .replace('/ee/i', 'ē')
+        .replace('/ou/i', 'ō')
+        .replace('/oo/i', 'ō');
 
 };

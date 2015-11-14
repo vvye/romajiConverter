@@ -262,7 +262,10 @@ function getConversionTable() {
         {romaji: 'ffe', hiragana: 'っふぇ', katakana: 'ッフェ'},
         {romaji: 'ffo', hiragana: 'っふぉ', katakana: 'ッフォ'},
         {romaji: 'ffyu', hiragana: 'っふゅ', katakana: 'ッフュ'},
-        {romaji: 'hhye', hiragana: 'っひぇ', katakana: 'ッヒェ'}
+        {romaji: 'hhye', hiragana: 'っひぇ', katakana: 'ッヒェ'},
+
+        {romaji: ',', hiragana: '、', katakana: '、'},
+        {romaji: '.', hiragana: '。', katakana: '。'}
     ];
 
 }
