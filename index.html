@@ -53,7 +53,36 @@
 
 		<script type="text/javascript" src="js/startswith.js"></script>
 		<script type="text/javascript" src="js/conversionTable.js"></script>
-		<script type="text/javascript" src="js/converter.js"></script>
+		<script type="text/javascript" src="js/Converter_xyz.js"></script>
+
+		<script>
+
+			var converter = new Converter();
+
+			var romajiInput = document.getElementById('romaji');
+			var hiraganaInput = document.getElementById('hiragana');
+			var katakanaInput = document.getElementById('katakana');
+
+			romajiInput.onkeyup = hiraganaInput.onkeyup = katakanaInput.onkeyup = function () {
+
+				var from = this.id;
+
+				converter.convert(this.value, from);
+				var conversionResult = converter.getResult();
+
+				if (this !== romajiInput) {
+					romajiInput.value = conversionResult.romajiText;
+				}
+				if (this !== hiraganaInput) {
+					hiraganaInput.value = conversionResult.hiraganaText;
+				}
+				if (this !== katakanaInput) {
+					katakanaInput.value = conversionResult.katakanaText;
+				}
+
+			};
+
+		</script>
 
 	</body>
 
