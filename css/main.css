@@ -4,7 +4,7 @@
     margin: auto;
 }
 
-noscript div {
+.info {
     margin: 1em 0.5em;
     border-radius: 2px;
     background-color: #DEF;
@@ -15,6 +15,15 @@ noscript div {
 .pure-form fieldset {
     padding-left: 0.5em;
     padding-right: 0.5em;
+}
+
+.disclaimer {
+    margin-top: 5em;
+    padding: 1em 1.5em;
+}
+
+.disclaimer h2 {
+    margin: 0.5em 0 0;
 }
 
 @media screen and (max-width: 48em) {

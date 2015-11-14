@@ -22,7 +22,9 @@
 
 			<h1>romaji と hiragana/katakana and back</h1>
 
-			<noscript><div>This page needs JavaScript to work.</div></noscript>
+			<noscript>
+				<div class="info">This page needs JavaScript to work.</div>
+			</noscript>
 
 			<form class="pure-form">
 
@@ -48,6 +50,27 @@
 				</div>
 
 			</form>
+
+			<div class="info disclaimer">
+				<h2>Disclaimer</h2>
+				<p>This converter is stupid &mdash; it rigidly converts characters, without any knowledge of Japanese
+					grammar or official transcription rules. It misses a lot of the finer points, for instance:</p>
+				<ul>
+					<li>it doesn't transcribe は as <em>wa</em> when used as a particle (same for を <em>o</em> and へ
+						<em>e</em>).
+					</li>
+					<li>it doesn't know whether <em>ō</em> means <em>oo</em> or <em>ou</em> (it always assumes the
+						latter).
+					</li>
+					<li>it doesn't care that the long vowel mark ー or constructions like ヒェ aren't officially used in
+						Hiragana.
+					</li>
+					<li>probably a lot more.</li>
+				</ul>
+				<p>If you've found a true bug (read: none of the above kind),
+					<a href="http://www.eric-kaiser.net/?p=contact">let me know</a> &mdash; I might just fix it if I
+					can.</p>
+			</div>
 
 		</div>
 
