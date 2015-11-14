@@ -42,10 +42,10 @@ Converter.prototype.getResult = function() {
 Converter.prototype._preprocess = function () {
 
     this.text = this.text
-        .replace('/ā/gi', 'aa')
-        .replace('/ū/gi', 'uu')
-        .replace('/ē/gi', 'ee')
-        .replace('/ō/gi', 'ou');
+        .replace(/ā/gi, 'aa')
+        .replace(/ū/gi, 'uu')
+        .replace(/ē/gi, 'ee')
+        .replace(/ō/gi, 'ou');
 
 };
 
@@ -88,10 +88,10 @@ Converter.prototype._postprocess = function () {
     this.result.romajiText = this.result.romajiText
         .replace(/([aiueo])ー/gi, '$1$1')
 
-        .replace('/aa/i', 'ā')
-        .replace('/uu/i', 'ū')
-        .replace('/ee/i', 'ē')
-        .replace('/ou/i', 'ō')
-        .replace('/oo/i', 'ō');
+        .replace(/aa/i, 'ā')
+        .replace(/uu/i, 'ū')
+        .replace(/ee/i, 'ē')
+        .replace(/ou/i, 'ō')
+        .replace(/oo/i, 'ō');
 
 };
