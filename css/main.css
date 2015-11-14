@@ -4,6 +4,13 @@
     margin: auto;
 }
 
+a:link, a:visited,
+a:hover, a:active {
+    color: #58B;
+    background-color: #F0F8FF;
+    text-decoration: none;
+}
+
 .info {
     margin: 1em 0.5em;
     border-radius: 2px;
