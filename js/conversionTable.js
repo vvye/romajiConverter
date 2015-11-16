@@ -258,5 +258,3 @@ function getConversionTable() {
     ];
 
 }
-
-
