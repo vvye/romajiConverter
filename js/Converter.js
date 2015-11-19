@@ -88,10 +88,10 @@ Converter.prototype._postprocess = function () {
     this.result.romajiText = this.result.romajiText
         .replace(/([aiueo])ー/gi, '$1$1')
 
-        .replace(/aa/i, 'ā')
-        .replace(/uu/i, 'ū')
-        .replace(/ee/i, 'ē')
-        .replace(/ou/i, 'ō')
-        .replace(/oo/i, 'ō');
+        .replace(/aa/gi, 'ā')
+        .replace(/uu/gi, 'ū')
+        .replace(/ee/gi, 'ē')
+        .replace(/ou/gi, 'ō')
+        .replace(/oo/gi, 'ō');
 
 };
